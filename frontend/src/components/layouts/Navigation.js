@@ -1,10 +1,10 @@
-import React from 'react'
-import '../App.css'
-import { Nav, Navbar } from 'react-bootstrap'
+import React from 'react';
+import '../../App.css';
+import { Nav, Navbar } from 'react-bootstrap';
 
 function Navigation() {
     return (
-        <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top">
         <Navbar.Brand href="#home">HotDogCarts</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -17,4 +17,4 @@ function Navigation() {
     );
 }
 
-export default Navigation
+export default Navigation;
