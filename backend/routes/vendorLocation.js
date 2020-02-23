@@ -3,7 +3,7 @@ const router = express.Router();
 const vendorLocationJson = require('../data/vendorLocation.json');
 
 
-//Get All Colors
+//Get All Vendor
 router.get('/', function (req, res, next) {
     res.json(vendorLocationJson);
 });
