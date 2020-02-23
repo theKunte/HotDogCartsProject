@@ -6,8 +6,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var vendorRouter = require('./routes/vendor');
-//Cvar incomingOrdersRouter = require('./routers/incomingOrders')
-//var vendorLocationRouterc = require('./routers/vendorLocation');
+var incomingOrdersRouter = require('./routes/incomingOrders')
+var vendorLocationRouter = require('./routes/vendorLocation');
 
 
 
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/vendor', vendorRouter);
-//app.use('/incomingOrders', incomingOrdersRouter);
-//app.use('/vendorLocation', vendorLocationRouter);
+app.use('/incomingOrders', incomingOrdersRouter);
+app.use('/vendorLocation', vendorLocationRouter);
 
 module.exports = app;

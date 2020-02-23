@@ -75,5 +75,17 @@
 		  }
 		}   
 	},
+	{
+		"id": 7,
+		"vendorLocation":{
+			 "street": "Lol Mall",
+		  "city": "North Elvis",
+		  "zipcode": "63919-4257",
+		  "geo": {
+			"lat": "29.5572",
+			"lng": "-154.2990"
+			}
+		  }   
+	  }
 
 ]
