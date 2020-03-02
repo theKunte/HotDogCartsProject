@@ -7,10 +7,9 @@
   font-family: 'Raleway', sans-serif;
 }
 
-
-/* .App {
-  text-align: center;
-} */
+.App {
+  min-height: calc(100vh - 56px - 56px);
+}
 
 /* ============ HOME PAGE HERO SECTION ============ */
 .jumbotron-fluid {
@@ -37,8 +36,8 @@
 
 .input-group-append .btn {
   border-radius: 2rem;
+  line-height: 2rem;
 }
-
 
 /* ============ HOME PAGE HOW IT WORKS CARDS ============ */
 
@@ -50,13 +49,13 @@ h2 {
 }
 
 .howItworks {
-  height: 80vh;
+  height: calc(100vh - 56px - 56px);
   padding: 5rem 0;
 }
 .card-title {
-  position: absolute;
+  position: relative;
   top: -75px;
-  left: 55px;
+  left: -40px;
   z-index: 10;
   font-size: 2rem !important;
   font-weight: 700 !important;
@@ -79,10 +78,11 @@ h2 {
   border-radius: 1rem !important;
   height: 100% !important;
   margin-top: 2rem;
+  width: 100% !important;
 }
 
 .card-body {
-  padding: 2rem !important;
+  padding-top: 0 !important;
 }
 
 .fa-credit-card,
@@ -90,15 +90,114 @@ h2 {
 .fa-map-marked-alt {
   font-size: 4rem;
   margin-bottom: 2rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
+/* ============ MENU ITEMS / PRODUCTS ============ */
+
+.contentBox {
+  width: 200px;
+  border: 1px solid lightgrey;
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  margin: 0.5rem;
+}
+
+.productTitle {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.productImg {
+  width: 100%;
+}
+
+.productDesc {
+  font-style: italic;
+  color: #999;
+  font-size: 14px;
+}
+
+.priceBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: relative;
+  top: 6px;
+  left: 4px;
+  color: #980405;
+}
+
+/* ============ SIDE BAR SHOPPING CART ============ */
+
+.cartSubtotal,
+.cartDelivery {
+  position: relative;
+  right: -90px;
+}
+
+.cartTotal {
+  position: relative;
+  right: -80px;
+}
 
 /* ============ FOOTER ============ */
 .footer {
   background: rgb(223, 223, 223);
   padding: 1rem;
+  clear: both;
+  /* margin-top: 1rem; */
 }
 
 
-/* ============  ============ */
+/* ============ DASHBOARD SIDE NAV ============ */
+
+.dashboardSideNav {
+  margin-top: 56px;
+  min-height: calc(100vh - 56px - 56px);
+  background: #354052;
+  color: #eee;
+}
+.dashboardSideNav p {
+  padding-left: 1.6rem;
+  padding-top: 1rem;
+  color: #ffffbe;
+}
+
+.dashboardSideNav ul {
+  list-style: none;
+}
+
+.dashboardSideNav ul li {
+  padding: .8rem;
+  
+}
+
+.dashboardSideNav ul li a {
+  text-decoration: none;
+  color: #eee;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+.dashboardSideNav ul li:hover {
+  background: #596881;
+  transition: all .2s ease;
+}
+
+.dashboardSideNav .active {
+  background: #596881;
+}
+
+
+.dashboardSideNav .logout {
+  padding-left: 2rem;
+  color: #eee;
+}
