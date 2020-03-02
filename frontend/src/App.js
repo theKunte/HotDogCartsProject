@@ -2,18 +2,29 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import VendorPage from './pages/VendorPage';
+import VendorMenu from './pages/VendorMenu';
+import VendorIncomingOrder from './pages/VendorIncomingOrder';
+import VendorCartLocation from './pages/VendorCartLocation';
 import Navigation from './components/layouts/Navigation';
 import Footer from './components/layouts/Footer';
 import Home from './pages/Home';
 import CartLocations from './pages/CartLocations';
 import MenuPage from './pages/MenuPage';
-import VendorPage from './pages/VendorPage';
 import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
+
 
 function App() {
   return (
     <div className="App">
+
+      <Router>
+          <Route path="/vendor" cmponent ={VendorPage} />
+          <Route path="/vendorin" component={VendorIncomingOrder} />
+          <Route path="/vendormenu" component ={VendorMenu} />
+          <Router path="/vendorlocation" component={VendorCartLocation} />
+      </Router>
       <Navigation />
       <Router>
           <Route exact path="/" component={Home} />
@@ -28,4 +39,6 @@ function App() {
   );
 }
 
+
 export default App;
+

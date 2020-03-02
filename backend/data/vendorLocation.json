@@ -1,0 +1,91 @@
+[
+	{
+	  "id": 1,
+	  "vendorLocation":{
+	  	 "street": "Kulas Light",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+		  }
+		}   
+	},
+	{
+	  "id": 2,
+	  "vendorLocation":{
+	  	"street": "Kulas Light",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+		  }
+		}   
+	},
+
+{
+	  "id": 3,
+	  "vendorLocation":{
+	  	 "street": "Kulas Light",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+		  }
+		}   
+	},
+
+{
+	  "id": 4,
+	  "vendorLocation":{
+	  	 "street": "Kulas Light",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+		  }
+		}   
+	},
+
+{
+	  "id": 5,
+	  "vendorLocation":{
+	  	 "street": "Kulas Light",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+		  }
+		}   
+	},
+
+{
+	  "id": 6,
+	  "vendorLocation":{
+	  	 "street": "Hoeger Mall",
+        "city": "South Elvis",
+        "zipcode": "53919-4257",
+        "geo": {
+          "lat": "29.4572",
+          "lng": "-164.2990"
+		  }
+		}   
+	},
+	{
+		"id": 7,
+		"vendorLocation":{
+			 "street": "Lol Mall",
+		  "city": "North Elvis",
+		  "zipcode": "63919-4257",
+		  "geo": {
+			"lat": "29.5572",
+			"lng": "-154.2990"
+			}
+		  }   
+	  }
+
+]
