@@ -23,5 +23,6 @@ app.use("/users", usersRouter);
 app.use("/vendor", vendorRouter);
 app.use("/incomingOrders", incomingOrdersRouter);
 app.use("/vendorLocation", vendorLocationRouter);
+app.use("/admin", adminRouter);
 
 module.exports = app;
