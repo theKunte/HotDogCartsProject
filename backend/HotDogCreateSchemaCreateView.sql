@@ -183,6 +183,84 @@ CREATE VIEW ShowMenu AS
         JOIN ITEM USING(ItemID)
 	GROUP BY LOCATION;
     
+#----------------------TRIGGERS-----------------------
+DELIMITER //
+CREATE TRIGGER LOCATION_ADD AFTER INSERT ON LOCATION
+	FOR EACH ROW
+	BEGIN
+	  INSERT INTO LOG
+	  VALUES
+      (
+      NULL,
+      'LOCATION_ADD',
+      NULL,
+      NEW.Availability,
+      GETDATE(),
+      NULL,
+      NEW.New_Address,
+      NEW.LocationID,
+      NULL
+      );
+	END;
+
+CREATE TRIGGER LOCATION_AVAILABILITY AFTER UPDATE ON LOCATION
+	FOR EACH ROW
+	BEGIN
+	  INSERT INTO LOG
+	  VALUES
+      (
+      NULL,
+      'LOCATION_AVAILABILITY',
+      OLD.Availability,
+      NEW.Availability,
+      GETDATE(),
+      NULL,
+      NULL,
+      NEW.LocationID,
+      NULL
+      );
+	END;
+    
+CREATE TRIGGER LOCATION_ADDRESS AFTER UPDATE ON LOCATION
+	FOR EACH ROW
+	BEGIN
+	  INSERT INTO LOG
+	  VALUES
+      (
+      NULL,
+      'LOCATION_ADDRESS',
+      NULL,
+      NULL,
+      GETDATE(),
+      OLD.Address,
+      NEW.Address,
+      NEW.LocationID,
+      NULL
+      );
+	END;
+    
+CREATE TRIGGER MENU_AVAILABILITY AFTER UPDATE ON LOCATION_ITEM
+	FOR EACH ROW
+	BEGIN
+	  INSERT INTO LOG
+	  VALUES
+      (
+      NULL,
+      'MENU_AVAILABILITY',
+      OLD.Availability,
+      NEW.Availability,
+      GETDATE(),
+      NULL,
+      NULL,
+      NEW.LocationID,
+      NEW.ItemID
+      );
+	END;
+END //
+    
+#Add sample data
+    
+    
     
     
 
