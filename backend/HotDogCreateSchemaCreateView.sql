@@ -198,8 +198,8 @@ DELIMITER //
 CREATE TRIGGER LOCATION_ADD AFTER INSERT ON LOCATION
 	FOR EACH ROW
 	BEGIN
-	  INSERT INTO LOG
-	  VALUES(ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID),
+	  INSERT INTO LOG (ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID)
+	  VALUES
       (NULL, 'LOCATION_ADD',NULL, NEW.Availability, NOW(), NULL, NEW.Address, NEW.LocationID, NULL);
 	END//
 
@@ -269,5 +269,8 @@ INSERT INTO `LOCATION`
 			(LocationID, `Name`, Availability, Address, UserID)
 	VALUES	(NULL, 'LIBERTY DOGS', 'Y', '105 Greenwood Ave N, Seattle WA', 1),
 			(NULL, 'FREEDOM DOGS', 'Y', '105 Greenwood Ave N, Seattle WA', 2);
+            
+INSERT INTO LOG (ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID)
+		VALUES	(NULL, 'LOCATION_ADD',NULL, 'Y', '2009-01-01', NULL, '12 Syracuse Ave', 1, 1);
 
 
