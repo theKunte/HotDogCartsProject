@@ -4,6 +4,7 @@ let logJson = require("../data/log.json");
 let vendorsJson = require("../data/vendor.json");
 let ordersJson = require("../data/incomingOrders.json");
 let menuitemsJson = require("../data/menuitems.json");
+//let db = require("../data/db");
 
 //Send back the Cart vendors when admin goes to cart locations
 router.get("/vendors", function(req, res, next) {
@@ -27,6 +28,10 @@ router.get("/removecart", function(req, res, next) {
 
 //Get logs when admin goes to logs
 router.get("/log", function(req, res, next) {
+  /*   let sql = "Call ShowLog";
+  db.query(sql, (err, result) => {
+    console.log(result);
+  }); */
   res.send(logJson);
 });
 

@@ -22,7 +22,7 @@ ENGINE = InnoDB;
 
 #User
 CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`USER` (
-  `UserID` INT NOT NULL,
+  `UserID` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `firstname` VARCHAR(45) NOT NULL,
@@ -37,7 +37,6 @@ ENGINE = InnoDB;
 #Restrict delete because location must have a user.
 CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`LOCATION` (
   `LocationID` INT NOT NULL AUTO_INCREMENT,
-  `MenuID` INT NOT NULL,
   `Name` VARCHAR(45) NULL,
   `Availability` ENUM('Y', 'N') NOT NULL,
   `Address` VARCHAR(45) NOT NULL,
@@ -142,8 +141,10 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-CREATE VIEW ShowLog AS
-	SELECT `Type` AS 'Change Type',
+DELIMITER //
+CREATE PROCEDURE ShowLog()
+	BEGIN
+    SELECT `Type` AS 'Change Type',
 			`Time` AS 'Time', 
 			Original_Availability AS 'Original_Availability',
             New_Availability AS 'New_Availability',
@@ -153,15 +154,21 @@ CREATE VIEW ShowLog AS
             Item.`Name` AS 'Item'
 	 FROM LOG JOIN LOCATION USING(LocationID) JOIN ITEM USING(ItemID)
      ORDER BY `Time` DESC;
+END //
 
-CREATE VIEW ShowLocation AS 
+DELIMITER //
+CREATE PROCEDURE ShowLocation()
+BEGIN
 	SELECT LOCATION.`Name` AS 'Location Name',
     LOCATION.Address AS 'Address', 
     LOCATION.Availability AS 'Available'
 FROM LOCATION
 ORDER BY Location.`Name` DESC;
+END //
 
-CREATE VIEW ShowOrder AS
+DELIMITER //
+CREATE PROCEDURE ShowOrder()
+BEGIN
 	SELECT `ORDER`.`Status` AS 'Order Status',
     `ORDER`.`TIME` AS 'Time Received',
     `Location`.`Name`'Location Name',
@@ -171,22 +178,99 @@ CREATE VIEW ShowOrder AS
 		JOIN LOCATION USING(LocationID) 
         JOIN Order_Item USING(OrderID) 
         JOIN ITEM USING(ItemID) 
-	GROUP BY OrderID;
-    
-CREATE VIEW ShowMenu AS
-	SELECT LOCATION.`Name` AS 'Location',
-	ITEM.`Name` AS 'Item', 
+	ORDER BY OrderID;
+END //
+
+DELIMITER //
+CREATE PROCEDURE ShowMenu(IN inLocationID INT)
+BEGIN
+	SELECT ITEM.`Name` AS 'Item', 
     LOCATION_ITEM.Quantity AS 'Quantity',
     LOCATION_ITEM.Availability AS 'Availability'
     FROM LOCATION
 		JOIN LOCATION_ITEM USING(LocationID)
         JOIN ITEM USING(ItemID)
-	GROUP BY LOCATION;
-    
-    
-    
+	WHERE LocationID = inLocationID;
+END //
+#----------------------TRIGGERS-----------------------
 
+DELIMITER //
+CREATE TRIGGER LOCATION_ADD AFTER INSERT ON LOCATION
+	FOR EACH ROW
+	BEGIN
+	  INSERT INTO LOG (ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID)
+	  VALUES
+      (NULL, 'LOCATION_ADD',NULL, NEW.Availability, NOW(), NULL, NEW.Address, NEW.LocationID, NULL);
+	END//
+
+DELIMITER //
+CREATE TRIGGER LOCATION_AVAILABILITY AFTER UPDATE ON LOCATION
+	FOR EACH ROW
+	BEGIN
+	  INSERT INTO LOG
+	  VALUES
+      (
+      NULL,
+      'LOCATION_AVAILABILITY',
+      OLD.Availability,
+      NEW.Availability,
+      NOW(),
+      NULL,
+      NULL,
+      NEW.LocationID,
+      NULL
+      );
+	END//
+
+DELIMITER //
+CREATE TRIGGER LOCATION_ADDRESS AFTER UPDATE ON LOCATION
+	FOR EACH ROW
+	BEGIN
+	  INSERT INTO LOG
+	  VALUES
+      (
+      NULL,
+      'LOCATION_ADDRESS',
+      NULL,
+      NULL,
+      NOW(),
+      OLD.Address,
+      NEW.Address,
+      NEW.LocationID,
+      NULL
+      );
+	END//
+
+DELIMITER //
+CREATE TRIGGER MENU_AVAILABILITY AFTER UPDATE ON LOCATION_ITEM
+	FOR EACH ROW
+	BEGIN
+	  INSERT INTO LOG
+	  VALUES
+      (
+      NULL,
+      'MENU_AVAILABILITY',
+      OLD.Availability,
+      NEW.Availability,
+      NOW(),
+      NULL,
+      NULL,
+      NEW.LocationID,
+      NEW.ItemID
+      );
+	END//
+
+
+INSERT INTO `USER`
+	VALUES	(NULL, 'cooldude@gmail.com', '1234', 'Ben', 'Douginson', 'vendor'),
+			(NULL, 'skatedad@gmail.com', '2222', 'Chad', 'Dugelsen', 'vendor');
+
+INSERT INTO `LOCATION`
+			(LocationID, `Name`, Availability, Address, UserID)
+	VALUES	(NULL, 'LIBERTY DOGS', 'Y', '105 Greenwood Ave N, Seattle WA', 1),
+			(NULL, 'FREEDOM DOGS', 'Y', '105 Greenwood Ave N, Seattle WA', 2);
             
-            
+INSERT INTO LOG (ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID)
+		VALUES	(NULL, 'LOCATION_ADD',NULL, 'Y', '2009-01-01', NULL, '12 Syracuse Ave', 1, 1);
 
 
