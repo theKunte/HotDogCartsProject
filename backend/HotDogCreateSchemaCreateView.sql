@@ -178,7 +178,7 @@ BEGIN
 		JOIN LOCATION USING(LocationID) 
         JOIN Order_Item USING(OrderID) 
         JOIN ITEM USING(ItemID) 
-	GROUP BY OrderID;
+	ORDER BY OrderID;
 END //
 
 DELIMITER //
@@ -199,18 +199,8 @@ CREATE TRIGGER LOCATION_ADD AFTER INSERT ON LOCATION
 	FOR EACH ROW
 	BEGIN
 	  INSERT INTO LOG
-	  VALUES
-      (
-      NULL,
-      'LOCATION_ADD',
-      NULL,
-      NEW.Availability,
-      NOW(),
-      NULL,
-      NEW.Address,
-      NEW.LocationID,
-      NULL
-      );
+	  VALUES(ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID),
+      (NULL, 'LOCATION_ADD',NULL, NEW.Availability, NOW(), NULL, NEW.Address, NEW.LocationID, NULL);
 	END//
 
 DELIMITER //
