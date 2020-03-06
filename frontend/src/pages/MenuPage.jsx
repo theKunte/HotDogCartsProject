@@ -23,8 +23,6 @@ const MenuPage = () => (
             <MenuItems />
             <MenuItems />
             <MenuItems />
-            <MenuItems />
-            <MenuItems />
     
             <SideCart />
         </div>
