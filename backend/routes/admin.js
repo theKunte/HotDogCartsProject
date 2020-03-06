@@ -47,7 +47,14 @@ router.get("/log", function(req, res, next) {
 
 //Send back the orders when the admin selects incoming orders
 router.get("/orders", function(req, res, next) {
-  res.send(ordersJson);
+  let sql = "Call ShowOrder";
+  db.query(sql, (err, rows) => {
+    if (err) throw err;
+    else {
+      console.log(rows[0].length);
+    }
+    res.send(rows[0]);
+  });
 });
 
 router.get("/menuitems", function(req, res, next) {
