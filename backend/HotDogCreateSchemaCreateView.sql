@@ -159,7 +159,7 @@ END //
 DELIMITER //
 CREATE PROCEDURE ShowLocation()
 BEGIN
-	SELECT LOCATION.`Name` AS 'Location Name',
+	SELECT LOCATION.`Name` AS 'LocationName',
     LOCATION.Address AS 'Address', 
     LOCATION.Availability AS 'Available'
 FROM LOCATION
