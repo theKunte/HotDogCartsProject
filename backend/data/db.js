@@ -4,7 +4,7 @@ var mysql = require("mysql");
 var db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "@Castle27",
+  password: "enter your password",
   database: "HotDogDatabase"
 });
 
