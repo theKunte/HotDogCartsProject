@@ -3,6 +3,7 @@ import { Component } from "react";
 // import VendorRenderBox from './VendorRenderBox';
 import AdminSideNav from "../components/AdminSideNav";
 import { Container, Row, Col } from "react-bootstrap";
+import VendorRenderBox from "./VendorRenderBox";
 
 class AdminPage extends Component {
   constructor() {
@@ -31,16 +32,18 @@ class AdminPage extends Component {
             xl="10"
             style={{ paddingTop: "75px" }}
           >
-            <h6> Active list of vendors: </h6>
+            <h6> Active Vendors: </h6>
             <ul>
+              <hr></hr>
               {this.state.vendors.map(vendor => (
-                <li key={vendor.LocationID}>
-                  {" "}
-                  {vendor.Address} {vendor.Availability}
-                </li>
+                <>
+                  <VendorRenderBox
+                    Address={vendor.Address}
+                    VendorName={vendor.VendorName}
+                  />
+                </>
               ))}
             </ul>
-            {/* <AdminRenderBox /> */}
           </Col>
         </Row>
       </Container>
