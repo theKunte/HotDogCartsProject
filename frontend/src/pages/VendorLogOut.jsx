@@ -19,7 +19,7 @@ class VendorLogOut extends Component{
             xl="10"
             style={{ paddingTop: "75px" }}
           >
-            <h6>The Log</h6>
+            <h6>Log Out</h6>
             <hr></hr>
           </Col>
         </Row>
