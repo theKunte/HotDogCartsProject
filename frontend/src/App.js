@@ -19,14 +19,6 @@ import AdminLog from "./pages/AdminLog";
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Route path="/vendor" cmponent={VendorPage} />
-        <Route path="/vendorin" component={VendorIncomingOrder} />
-        <Route path="/vendormenu" component={VendorMenu} />
-        <Router path="/vendorlocation" component={VendorCartLocation} />
-        <Router path="/adminaddcart" component={AdminAddCart} />
-        <Router path="/adminlog" component={AdminLog} />
-      </Router>
       <Navigation />
       <Router>
         <Route exact path="/" component={Home} />
@@ -35,6 +27,12 @@ function App() {
         <Route path="/admin" component={AdminPage} />
         <Route path="/vendor" component={VendorPage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/vendor" cmponent={VendorPage} />
+        <Route path="/vendorin" component={VendorIncomingOrder} />
+        <Route path="/vendormenu" component={VendorMenu} />
+        <Route path="/vendorlocation" component={VendorCartLocation} />
+        <Route path="/adminaddcart" component={AdminAddCart} />
+        <Route path="/adminlog" component={AdminLog} />
       </Router>
       <Footer />
     </div>
