@@ -7,29 +7,44 @@ import Sidebar from '../components/layouts/Sidebar';
 const styleMapDiv = {
     height: '80vh',
     marginBottom: '2rem',
-    marginTop: '4.6875rem'
+    marginTop: '4.6875rem',
+    textAlign: 'center',
+    justifyContent: 'center',
+    
 }
 const styleContainer = {
-    height: 'calc(98vh - 56px - 56px)'
+    height: 'calc(98vh - 56px - 56px)',
+    
 }
 
 const styleInfoWinTitle = {
+    color: 'red',
+    fontWeight: 'bold',
+    
 
 }
 
 const styleInfoWinAddress = {
+    fontFamily: 'Arial',
+    fontWeight: 'bold',
     
 }
 
 const styleInfoWinHours = {
+    fontFamily: 'Arial',
+    fontWeight: 'bold',
     
 }
 
 const styleInfoWinPhone = {
+    fontFamily: 'Arial',
+    fontWeight: 'bold',
     
 }
 
 const styleInfoWinButton = {
+    fontFamily: 'Arial',
+    fontWeight: 'bold',
     
 }
 
@@ -64,7 +79,7 @@ function Map() {
                 }}
             >
                 <div>
-                    <p style={ styleInfoWinTitle }>{selectedCart.title}</p>
+                    <h3 style={ styleInfoWinTitle }>{selectedCart.title}</h3>
                     <p style={ styleInfoWinAddress }>{selectedCart.address}</p>
                     <p style={ styleInfoWinHours }>{selectedCart.hours}</p>
                     <p style={ styleInfoWinPhone }>{selectedCart.phone}</p>
