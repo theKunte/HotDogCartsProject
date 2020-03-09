@@ -12,22 +12,22 @@ class AdminSideNav extends Component {
           <hr />
           <ul>
             <li className="active">
-              <a href="/vendor-list">Vendor List</a>
+              <a href="/adminvendor">Vendor List</a>
             </li>
             <li>
-              <a href="/adminaddcart">Add A Cart</a>
+              <a href="/adminaddcart">Add Cart</a>
             </li>
             <li>
-              <a href="/remove-cart">Remove Cart</a>
+              <a href="/adminremovecart">Remove Cart</a>
             </li>
             <li>
-              <a href="/incoming-orders">Incoming Order</a>
+              <a href="/adminincomingorder">Incoming Orders</a>
             </li>
             <li>
-              <a href="/menu-item">Menu Item</a>
+              <a href="/adminmenu">Menu Item</a>
             </li>
             <li>
-              <a href="/log">Log</a>
+              <a href="/adminlog">Log</a>
             </li>
           </ul>
           <hr />

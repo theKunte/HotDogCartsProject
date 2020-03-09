@@ -3,7 +3,7 @@ import { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AdminSideNav from "../components/AdminSideNav";
 
-class AdminAddCart extends Component {
+class AdminLog extends Component {
   render() {
     return (
       <Container fluid>
@@ -19,7 +19,7 @@ class AdminAddCart extends Component {
             xl="10"
             style={{ paddingTop: "75px" }}
           >
-            <h6>Add Cart</h6>
+            <h6>Menu</h6>
             <hr></hr>
           </Col>
         </Row>
@@ -27,4 +27,4 @@ class AdminAddCart extends Component {
     );
   }
 }
-export default AdminAddCart;
+export default AdminLog;
