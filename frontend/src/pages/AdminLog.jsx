@@ -1,9 +1,23 @@
 import React from "react";
 import { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import AdminSideNav from "../components/VendorSideNav";
+import AdminSideNav from "../components/AdminSideNav";
+import LogRenderBox from "./LogRenderBox";
 
 class AdminLog extends Component {
+  constructor() {
+    super();
+    this.state = {
+      log: []
+    };
+  }
+  componentDidMount() {
+    fetch("http://localhost:3000/admin/log/")
+      .then(res => res.json())
+      .then(log =>
+        this.setState({ log }, () => console.log("Log Fetched ", log))
+      );
+  }
   render() {
     return (
       <Container fluid>
@@ -19,12 +33,24 @@ class AdminLog extends Component {
             xl="10"
             style={{ paddingTop: "75px" }}
           >
-            <h6>The Log</h6>
-            <hr></hr>
+            <h6> Log </h6>
+            <ul>
+              <hr></hr>
+              {this.state.log.map(singleLog => (
+                <>
+                  <LogRenderBox
+                    Location={singleLog.Location}
+                    Change_Type={singleLog.Change_Type}
+                    Time={singleLog.Time}
+                  />
+                </>
+              ))}
+            </ul>
           </Col>
         </Row>
       </Container>
     );
   }
 }
+
 export default AdminLog;

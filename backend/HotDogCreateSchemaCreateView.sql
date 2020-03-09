@@ -144,7 +144,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 DELIMITER //
 CREATE PROCEDURE ShowLog()
 	BEGIN
-    SELECT `Type` AS 'Change Type',
+    SELECT `Type` AS 'Change_Type',
 			`Time` AS 'Time', 
 			Original_Availability AS 'Original_Availability',
             New_Availability AS 'New_Availability',
@@ -278,9 +278,9 @@ INSERT INTO ITEM
 	VALUES (NULL, 'Vegan Dog');
             
 INSERT INTO LOG (ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID)
-		VALUES	(NULL, 'LOCATION_ADD',NULL, 'Y', '2011-01-01', NULL, '12 Syracuse Ave', 1, 1),
-        	(NULL, 'LOCATION_ADD',NULL, 'Y', '2012-03-01', NULL, '14 Greenwood Ave', 1, 1),
-        	(NULL, 'LOCATION_ADD',NULL, 'Y', '2013-02-01', NULL, '19 Aurora Ave', 1, 1);
+		VALUES	(NULL, 'LOCATION_ADD',NULL, 'Y', '2011-01-01', NULL, '95 Aurora Ave N, Seattle WA', 1, NULL),
+        	(NULL, 'LOCATION_ADD',NULL, 'Y', '2012-03-01', NULL, '105 Greenwood Ave N, Seattle WA', 2, NULL),
+        	(NULL, 'LOCATION_ADD',NULL, 'Y', '2013-02-01', NULL, '120 Greenwood Ave N, Seattle WA', 3, NULL);
 
 
 
