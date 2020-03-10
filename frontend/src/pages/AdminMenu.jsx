@@ -2,8 +2,22 @@ import React from "react";
 import { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AdminSideNav from "../components/AdminSideNav";
+import MenuRenderBox from "./MenuRenderBox";
 
-class AdminLog extends Component {
+class AdminMenu extends Component {
+  constructor() {
+    super();
+    this.state = {
+      menu: []
+    };
+  }
+  componentDidMount() {
+    fetch("http://localhost:3000/admin/menu/")
+      .then(res => res.json())
+      .then(menu =>
+        this.setState({ menu }, () => console.log("Menu Fetched ", menu))
+      );
+  }
   render() {
     return (
       <Container fluid>
@@ -19,12 +33,24 @@ class AdminLog extends Component {
             xl="10"
             style={{ paddingTop: "75px" }}
           >
-            <h6>Menu</h6>
-            <hr></hr>
+            <h6> Menu </h6>
+            <ul>
+              <hr></hr>
+              {this.state.menu.map(menuItem => (
+                <>
+                  <MenuRenderBox
+                    VendorName={menuItem.VendorName}
+                    Item={menuItem.Item}
+                    Quantity={menuItem.Quantity}
+                  />
+                </>
+              ))}
+            </ul>
           </Col>
         </Row>
       </Container>
     );
   }
 }
-export default AdminLog;
+
+export default AdminMenu;

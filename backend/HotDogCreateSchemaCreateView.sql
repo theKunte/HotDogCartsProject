@@ -144,15 +144,16 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 DELIMITER //
 CREATE PROCEDURE ShowLog()
 	BEGIN
-    SELECT `Type` AS 'Change_Type',
+	SELECT `Type` AS 'Change_Type',
 			`Time` AS 'Time', 
 			Original_Availability AS 'Original_Availability',
             New_Availability AS 'New_Availability',
             Original_Address AS 'Original_Address',
             New_Address AS 'New_Address',
 			Location.VendorName AS 'Location',
-            Item.`Name` AS 'Item'
-	 FROM LOG JOIN LOCATION USING(LocationID) JOIN ITEM USING(ItemID)
+            ItemID AS 'Item'
+	 FROM LOG
+     JOIN LOCATION USING(LocationID)
      ORDER BY `Time` DESC;
 END //
 
@@ -182,15 +183,16 @@ BEGIN
 END //
 
 DELIMITER //
-CREATE PROCEDURE ShowMenu(IN inLocationID INT)
+CREATE PROCEDURE ShowMenu()
 BEGIN
-	SELECT ITEM.`Name` AS 'Item', 
+	SELECT 
+    LOCATION.VendorName AS 'VendorName',
+    ITEM.`Name` AS 'Item', 
     LOCATION_ITEM.Quantity AS 'Quantity',
     LOCATION_ITEM.Availability AS 'Availability'
     FROM LOCATION
 		JOIN LOCATION_ITEM USING(LocationID)
-        JOIN ITEM USING(ItemID)
-	WHERE LocationID = inLocationID;
+        JOIN ITEM USING(ItemID);
 END //
 #----------------------TRIGGERS-----------------------
 
@@ -276,11 +278,13 @@ INSERT INTO `LOCATION`
             
 INSERT INTO ITEM
 	VALUES (NULL, 'Vegan Dog');
+    
+INSERT INTO LOCATION_ITEM
+	VALUES(1,1,'Y',32),
+    (2,1,'Y',53),
+    (3,1,'Y',12);
             
-INSERT INTO LOG (ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID)
-		VALUES	(NULL, 'LOCATION_ADD',NULL, 'Y', '2011-01-01', NULL, '95 Aurora Ave N, Seattle WA', 1, NULL),
-        	(NULL, 'LOCATION_ADD',NULL, 'Y', '2012-03-01', NULL, '105 Greenwood Ave N, Seattle WA', 2, NULL),
-        	(NULL, 'LOCATION_ADD',NULL, 'Y', '2013-02-01', NULL, '120 Greenwood Ave N, Seattle WA', 3, NULL);
+
 
 
 
