@@ -17,14 +17,16 @@ const MenuPage = () => (
         </div>
         <SelectedLocation /> 
         <h4 className='text-center' style={{ margin: '2rem 0'}}>LIST OF HOTDOGS</h4>
-        <div className='d-flex flex-between flex-wrap' style={{ width: '80%', marginBottom: '1rem'}}>
+        <div className='d-flex flex-between flex-wrap' style={{ paddingLeft: '1rem', marginBottom: '2rem'}}>
+            <MenuItems />
+            <MenuItems />
+            <MenuItems />
             <MenuItems />
             <MenuItems />
             <MenuItems />
             <MenuItems />
             <MenuItems />
     
-            <SideCart />
         </div>
     </Container>
 )

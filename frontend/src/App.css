@@ -39,7 +39,7 @@ h2 {
   margin-bottom: 2rem !important;
 }
 .howItworks {
-  height: calc(100vh - 56px - 56px);
+  min-height: calc(100vh - 56px - 56px);
   padding: 5rem 0;
 }
 .card-title {
