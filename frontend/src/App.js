@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import VendorLogOut from "./pages/VendorLogOut";
 import VendorPage from "./pages/VendorPage";
 import VendorMenu from "./pages/VendorMenu";
 import VendorIncomingOrder from "./pages/VendorIncomingOrder";
@@ -29,6 +30,7 @@ function App() {
         <Route path="/menu" component={MenuPage} />
         <Route path="/adminvendor" component={AdminVendor} />
         <Route path="/vendor" component={VendorPage} />
+        <Route path="/vendorLogout" component={VendorLogOut} />
         <Route path="/login" component={LoginPage} />
         <Route path="/vendor" cmponent={VendorPage} />
         <Route path="/vendorin" component={VendorIncomingOrder} />
