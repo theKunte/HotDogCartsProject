@@ -57,12 +57,15 @@ router.get("/orders", function(req, res, next) {
   });
 });
 
-router.get("/menuitems", function(req, res, next) {
-  var menuitems = JSON.stringify(menuitemsJson);
-  var menuitemsAndComment = menuitems.concat(
-    "We should add a way to narrow down by location"
-  );
-  res.send(menuitemsAndComment);
+router.get("/menu", function(req, res, next) {
+  let sql = "Call ShowMenu";
+  db.query(sql, (err, rows) => {
+    if (err) throw err;
+    else {
+      console.log(rows[0].length);
+    }
+    res.send(rows[0]);
+  });
 });
 
 module.exports = router;
