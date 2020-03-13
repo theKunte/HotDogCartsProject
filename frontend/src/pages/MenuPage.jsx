@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../App.css';
 import { Container } from 'react-bootstrap';
 import SelectedLocation from '../components/layouts/SelectedLocation';
 import MenuItem from '../components/MenuItem';
@@ -14,6 +15,7 @@ export default class MenuPage extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="menu-bg"></div>
                 <Container style={ styleContainer }>
                     <div className='d-flex align-items-center'>
                         <a className='btn btn-warning btn-sm' style={{ width: '180px'}} href="/cart-locations">Back To Map</a>  
