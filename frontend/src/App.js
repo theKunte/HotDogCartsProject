@@ -12,7 +12,6 @@ import Footer from "./components/layouts/Footer";
 import Home from "./pages/Home";
 import CartLocations from "./pages/CartLocations";
 import MenuPage from "./pages/MenuPage";
-// import MenuList from './pages/MenuList';
 import Cart from './pages/Cart';
 import AdminVendor from "./pages/AdminVendor";
 import LoginPage from "./pages/LoginPage";

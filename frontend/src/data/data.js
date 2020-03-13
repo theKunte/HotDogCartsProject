@@ -55,3 +55,15 @@ export const hotdogProducts = [
         total: 0
       }
     ];
+
+export const detailProduct = {
+  id: 1,
+  title: "Bob's Dogs Special",
+  img: "img/product-1.png",
+  price: 6.99,
+  info:
+    "Taste how 100% Beef turns a great hot dog into a grill-worthy masterpiece.",
+  inCart: false,
+  count: 0,
+  total: 0
+};

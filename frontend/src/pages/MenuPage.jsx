@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import SelectedLocation from '../components/layouts/SelectedLocation';
 import MenuItem from '../components/MenuItem';
 import { ProductConsumer } from '../data/context';
+import Modal from '../components/Modal';
 
 const styleContainer = {
     minHeight: 'calc(98vh - 56px - 56px)',
@@ -39,6 +40,7 @@ export default class MenuPage extends Component {
                         </ProductConsumer>
 
                     </div>
+                    <Modal />
                 </Container>
             </React.Fragment>
         )
