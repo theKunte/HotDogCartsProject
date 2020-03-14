@@ -14,7 +14,7 @@ export default class MenuItem extends Component {
 					<ProductConsumer>
 						{(value) => (
 							<div className="contentBox">
-								<img className="productImg" src="https://regmedia.co.uk/2017/07/07/hotdog.jpg?x=442&y=293&crop=1" alt="" />
+								<img className="productImg" src={this.props.product.img} alt={title} />
 								<div className="titleBox">
 										<h6 className="productTitle">{this.props.product.title}</h6>
 										<p className="productInfo">{this.props.product.info}</p>
@@ -31,7 +31,7 @@ export default class MenuItem extends Component {
 													value.openModal(id);
 												}} 
 										>
-												{inCart ? (<p className="btn btn-sm btn-danger" disabled>In the Cart</p>) : (<p>Add to Cart</p>)}
+												{inCart ? (<i className="fas fa-shopping-cart"></i>) : (<p>Add to Cart</p>)}
 										</a>
 								</div>
 							</div>

@@ -21,17 +21,18 @@ export default class Modal extends Component {
 									<Row>
 										<Col>
 											<div style={styleModal} className='col-8 mx-auto col-md-6 col-lg-4'>
-												<h5>Item Added to the Cart</h5>
-												<img src={img} className='img-fluid' alt='product' />
-												<h5>{title}</h5>
+												<h5 style={{ color: 'darkgreen' }}>Item Added to the Cart <i className="fas fa-shopping-cart"></i></h5>
+												<img src={img} className='img-fluid' alt={title} />
+												<br></br>
+												<h5 style={ styleTitle }>{title}</h5>
 												<h5>Price: $ {price}</h5>
-											
-												<Link to="/menu" className='btn btn-warning btn-sm' 
+												<br></br>
+												<Link to="/menu" className='btn btn-warning btn-sm mr-1' 
 												onClick={() => closeModal()}>
 													Continue Shopping
 												</Link>
-												<br></br>
-												<Link to="/cart" className='btn btn-success btn-sm' 
+												
+												<Link to="/cart" className='btn btn-success btn-sm ml-1' 
 												onClick={() => closeModal()}>
 													Go to Cart
 												</Link>
@@ -64,7 +65,12 @@ const styleModalContainer = {
 
 const styleModal = {
 	textAlign: 'center',
-	backgroundColor: '#eee',
+	backgroundColor: '#fff',
 	padding: '2rem',
 	borderRadius: '.1rem'
+}
+
+const styleTitle = {
+	fontFamily: 'Luckiest Guy',
+	letterSpacing: '.5px'
 }
