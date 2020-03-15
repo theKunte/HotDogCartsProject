@@ -18,9 +18,6 @@ class AdminSideNav extends Component {
               <a href="/adminaddcart">Add Cart</a>
             </li>
             <li>
-              <a href="/adminremovecart">Remove Cart</a>
-            </li>
-            <li>
               <a href="/adminincomingorder">Incoming Orders</a>
             </li>
             <li>
