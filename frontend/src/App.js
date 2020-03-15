@@ -37,7 +37,7 @@ function App() {
             <Route path="/vendorLogout" component={VendorLogOut} />
             <Route path="/login" component={LoginPage} />
             <Route path="/vendor" cmponent={VendorPage} />
-            <Route path="/vendorin" component={VendorIncomingOrder} />
+            <Route path="/vendorincoming" component={VendorIncomingOrder} />
             <Route path="/vendormenu" component={VendorMenu} />
             <Route path="/vendorlocation" component={VendorCartLocation} />
             <Route path="/adminaddcart" component={AdminAddCart} />
