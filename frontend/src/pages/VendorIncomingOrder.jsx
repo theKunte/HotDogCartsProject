@@ -15,7 +15,7 @@ class VendorIncomingOrder extends Component {
                         <h6>Welcome! Your Incoming Orders:</h6>
                         <hr></hr>
                         <VendorRenderBox />
-                        <VendorRenderBox />
+  
                     </Col>
                 </Row>
              </Container>

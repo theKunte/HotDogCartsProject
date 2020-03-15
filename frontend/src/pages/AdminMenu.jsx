@@ -1,20 +1,22 @@
 import React from "react";
 import { Component } from "react";
-// import VendorRenderBox from './VendorRenderBox';
-import AdminSideNav from "../components/AdminSideNav";
 import { Container, Row, Col } from "react-bootstrap";
+import AdminSideNav from "../components/AdminSideNav";
+import MenuRenderBox from "./MenuRenderBox";
 
-class AdminPage extends Component {
+class AdminMenu extends Component {
   constructor() {
     super();
     this.state = {
-      vendors: []
+      menu: []
     };
   }
   componentDidMount() {
-    fetch("http://localhost:3000/admin/vendors/")
+    fetch("http://localhost:3000/admin/menu/")
       .then(res => res.json())
-      .then(vendors => this.setState({ vendors }));
+      .then(menu =>
+        this.setState({ menu }, () => console.log("Menu Fetched ", menu))
+      );
   }
   render() {
     return (
@@ -31,16 +33,19 @@ class AdminPage extends Component {
             xl="10"
             style={{ paddingTop: "75px" }}
           >
-            <h6> Active list of vendors: </h6>
+            <h6> Menu </h6>
             <ul>
-              {this.state.vendors.map(vendor => (
-                <li key={vendor.LocationID}>
-                  {" "}
-                  {vendor.Address} {vendor.Availability}
-                </li>
+              <hr></hr>
+              {this.state.menu.map(menuItem => (
+                <>
+                  <MenuRenderBox
+                    VendorName={menuItem.VendorName}
+                    Item={menuItem.Item}
+                    Quantity={menuItem.Quantity}
+                  />
+                </>
               ))}
             </ul>
-            {/* <AdminRenderBox /> */}
           </Col>
         </Row>
       </Container>
@@ -48,4 +53,4 @@ class AdminPage extends Component {
   }
 }
 
-export default AdminPage;
+export default AdminMenu;

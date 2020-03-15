@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 #Restrict delete because location must have a user.
 CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`LOCATION` (
   `LocationID` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(45) NULL,
+  `VendorName` VARCHAR(45) NULL,
   `Availability` ENUM('Y', 'N') NOT NULL,
   `Address` VARCHAR(45) NOT NULL,
   `UserID` INT NOT NULL,
@@ -144,26 +144,27 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 DELIMITER //
 CREATE PROCEDURE ShowLog()
 	BEGIN
-    SELECT `Type` AS 'Change Type',
+	SELECT `Type` AS 'Change_Type',
 			`Time` AS 'Time', 
 			Original_Availability AS 'Original_Availability',
             New_Availability AS 'New_Availability',
             Original_Address AS 'Original_Address',
             New_Address AS 'New_Address',
-			Location.`Name` AS 'Location',
-            Item.`Name` AS 'Item'
-	 FROM LOG JOIN LOCATION USING(LocationID) JOIN ITEM USING(ItemID)
+			Location.VendorName AS 'Location',
+            ItemID AS 'Item'
+	 FROM LOG
+     JOIN LOCATION USING(LocationID)
      ORDER BY `Time` DESC;
 END //
 
 DELIMITER //
 CREATE PROCEDURE ShowLocation()
 BEGIN
-	SELECT LOCATION.`Name` AS 'LocationName',
+	SELECT LOCATION.VendorName AS 'VendorName',
     LOCATION.Address AS 'Address', 
     LOCATION.Availability AS 'Available'
 FROM LOCATION
-ORDER BY Location.`Name` DESC;
+ORDER BY Location.VendorName DESC;
 END //
 
 DELIMITER //
@@ -171,7 +172,7 @@ CREATE PROCEDURE ShowOrder()
 BEGIN
 	SELECT `ORDER`.`Status` AS 'Order Status',
     `ORDER`.`TIME` AS 'Time Received',
-    `Location`.`Name`'Location Name',
+    `Location`.VendorName'Location Name',
     `Item`.`Name` AS 'Item',
     ORDER_Item.Quantity AS 'Quantity'
     FROM `ORDER` 
@@ -182,15 +183,16 @@ BEGIN
 END //
 
 DELIMITER //
-CREATE PROCEDURE ShowMenu(IN inLocationID INT)
+CREATE PROCEDURE ShowMenu()
 BEGIN
-	SELECT ITEM.`Name` AS 'Item', 
+	SELECT 
+    LOCATION.VendorName AS 'VendorName',
+    ITEM.`Name` AS 'Item', 
     LOCATION_ITEM.Quantity AS 'Quantity',
     LOCATION_ITEM.Availability AS 'Availability'
     FROM LOCATION
 		JOIN LOCATION_ITEM USING(LocationID)
-        JOIN ITEM USING(ItemID)
-	WHERE LocationID = inLocationID;
+        JOIN ITEM USING(ItemID);
 END //
 #----------------------TRIGGERS-----------------------
 
@@ -263,19 +265,26 @@ CREATE TRIGGER MENU_AVAILABILITY AFTER UPDATE ON LOCATION_ITEM
 
 INSERT INTO `USER`
 	VALUES	(NULL, 'cooldude@gmail.com', '1234', 'Ben', 'Douginson', 'vendor'),
-			(NULL, 'skatedad@gmail.com', '2222', 'Chad', 'Dugelsen', 'vendor');
+			(NULL, 'skatedad@gmail.com', '2222', 'Chad', 'Dugelsen', 'vendor'),
+            (NULL, 'sailboater@gmail.com', '9992', 'Vlad', 'Dugelsen', 'vendor'),
+            (NULL, 'snowboarder@gmail.com', '5352', 'Germanicus', 'Clay', 'vendor');
 
 INSERT INTO `LOCATION`
-			(LocationID, `Name`, Availability, Address, UserID)
-	VALUES	(NULL, 'LIBERTY DOGS', 'Y', '105 Greenwood Ave N, Seattle WA', 1),
-			(NULL, 'FREEDOM DOGS', 'Y', '105 Greenwood Ave N, Seattle WA', 2);
+			(LocationID, VendorName, Availability, Address, UserID)
+	VALUES	(NULL, 'Queene Anne Dogs', 'Y', '95 Aurora Ave N, Seattle WA', 1),
+			(NULL, 'VeganGood Dogs', 'Y', '105 Greenwood Ave N, Seattle WA', 2),
+            (NULL, 'VeganCool Dogs', 'Y', '120 Greenwood Ave N, Seattle WA', 3),
+            (NULL, 'Seattle Dogs', 'Y', '132 Greenwood Ave N, Seattle WA', 4);
             
 INSERT INTO ITEM
 	VALUES (NULL, 'Vegan Dog');
+    
+INSERT INTO LOCATION_ITEM
+	VALUES(1,1,'Y',32),
+    (2,1,'Y',53),
+    (3,1,'Y',12);
             
-INSERT INTO LOG (ChangeID, `Type`, Original_Availability, New_Availability, `Time`, Original_Address, New_Address, LocationID, ItemID)
-		VALUES	(NULL, 'LOCATION_ADD',NULL, 'Y', '2011-01-01', NULL, '12 Syracuse Ave', 1, 1),
-        	(NULL, 'LOCATION_ADD',NULL, 'Y', '2012-03-01', NULL, '14 Greenwood Ave', 1, 1),
-        	(NULL, 'LOCATION_ADD',NULL, 'Y', '2013-02-01', NULL, '19 Aurora Ave', 1, 1);
+
+
 
 
