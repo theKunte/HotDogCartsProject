@@ -11,16 +11,8 @@ const LoginPage = () => (
         <Row style={{ margin: '0 auto'}}>
             <Col xs='2' sm='2' md='2' lg='4'></Col>
                 <Col sm='8' md='8' lg='4'>
-                    <Form>
-
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter your name" />
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-
+                    <Form method="post" action="sign in">
+                    <h1><b>Sign In</b></h1>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
