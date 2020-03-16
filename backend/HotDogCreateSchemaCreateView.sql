@@ -23,10 +23,10 @@ ENGINE = InnoDB;
 #User
 CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`USER` (
   `UserID` INT NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
   `usertype` ENUM('admin', 'vendor', 'customer') NOT NULL,
   PRIMARY KEY (`UserID`))
 ENGINE = InnoDB;

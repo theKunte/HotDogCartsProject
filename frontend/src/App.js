@@ -13,6 +13,7 @@ import CartLocations from './pages/CartLocations';
 import MenuPage from './pages/MenuPage';
 import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 
 function App() {
@@ -20,19 +21,24 @@ function App() {
     <div className="App">
 
       <Router>
+        
           <Route path="/vendor" cmponent ={VendorPage} />
           <Route path="/vendorin" component={VendorIncomingOrder} />
           <Route path="/vendormenu" component ={VendorMenu} />
           <Router path="/vendorlocation" component={VendorCartLocation} />
+          
       </Router>
       <Navigation />
       <Router>
+        
           <Route exact path="/" component={Home} />
           <Route path="/cart-locations" component={CartLocations} />
           <Route path="/menu" component={MenuPage} />
           <Route path="/admin" component={AdminPage} />
           <Route path="/vendor" component={VendorPage} />
-          <Route path="/login" component={LoginPage} />
+          <Route path="/registerPage" component={RegisterPage} />
+          <Route path="/loginPage" component={LoginPage} />
+        
       </Router>
       <Footer />
     </div> 

@@ -1,10 +1,12 @@
 var express = require("express");
 var mysql = require("mysql");
+var util = require('util');
+
 
 var db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "enter your password",
+  password: "28Jun2008#",
   database: "HotDogDatabase"
 });
 
@@ -14,5 +16,9 @@ db.connect(err => {
   }
   console.log("Database Connected");
 });
+
+db.query = util.promisify(db.query);
+
+
 
 module.exports = db;
