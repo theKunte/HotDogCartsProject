@@ -1,9 +1,20 @@
 import React from "react";
 import { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import AdminSideNav from "../components/AdminSideNav";
 
 class AdminAddCart extends Component {
+  constructor() {
+    super();
+    this.state = {
+      vendorusers: []
+    };
+  }
+  componentDidMount() {
+    fetch("http://localhost:3000/admin/vendorusers/")
+      .then(res => res.json())
+      .then(vendorusers => this.setState({ vendorusers }));
+  }
   render() {
     return (
       <Container fluid>
@@ -21,6 +32,32 @@ class AdminAddCart extends Component {
           >
             <h6>Add Cart</h6>
             <hr></hr>
+            <Form>
+              <Form.Group controlId="formVendorName">
+                <Form.Label>Vendor Name</Form.Label>
+                <Form.Control type="text" placeholder="Enter vendor name" />
+              </Form.Group>
+
+              <Form.Group controlId="formAddress">
+                <Form.Label>Vendor Address</Form.Label>
+                <Form.Control type="text" placeholder="Enter email" />
+              </Form.Group>
+
+              <Form.Group controlId="formVendor">
+                <Form.Label>Vendor</Form.Label>
+                <Form.Control as="select">
+                  {this.state.vendorusers.map(vendoruser => (
+                    <>
+                      <option>{vendoruser.firstname}</option>
+                    </>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+
+              <Button variant="warning" type="submit">
+                Add Vendor
+              </Button>
+            </Form>
           </Col>
         </Row>
       </Container>
