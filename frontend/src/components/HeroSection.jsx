@@ -4,7 +4,7 @@ import { Jumbotron, InputGroup, FormControl } from "react-bootstrap";
 function HeroSection() {
   return (
     <Jumbotron fluid className="text-center">
-      <h1>Agrarian Laborer Dogs</h1>
+      <h1>Bob's Dogs</h1>
       <p>
         A rustic hot dog vendor specializing in vegan dogs
         <br /> and traditional farming practices.

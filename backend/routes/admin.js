@@ -20,8 +20,8 @@ router.get("/vendors", function(req, res, next) {
 
 //We have to do something with input from add cart
 router.get("/addcart", function(req, res, next) {
+  let sql = "INSERT LOCATION";
   res.send("You should be able to type something in and send it to databse");
-  //send cart to database
 });
 
 //We have to do something with input from add cart
@@ -57,12 +57,26 @@ router.get("/orders", function(req, res, next) {
   });
 });
 
-router.get("/menuitems", function(req, res, next) {
-  var menuitems = JSON.stringify(menuitemsJson);
-  var menuitemsAndComment = menuitems.concat(
-    "We should add a way to narrow down by location"
-  );
-  res.send(menuitemsAndComment);
+router.get("/menu", function(req, res, next) {
+  let sql = "Call ShowMenu";
+  db.query(sql, (err, rows) => {
+    if (err) throw err;
+    else {
+      console.log(rows[0]);
+    }
+    res.send(rows[0]);
+  });
+});
+
+router.get("/vendorusers", function(req, res, next) {
+  let sql = "SELECT firstname, lastname FROM USER;";
+  db.query(sql, (err, rows) => {
+    if (err) throw err;
+    else {
+      console.log(rows);
+    }
+    res.send(rows);
+  });
 });
 
 module.exports = router;
