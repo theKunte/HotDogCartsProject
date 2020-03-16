@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 const styleVendorRenderBox = {
   border: "1px solid #bfbfbf",
   padding: "1.2rem",
@@ -39,6 +40,7 @@ class VendorRenderBox extends Component {
                 Show on map
               </label>
             </div>
+            <Button variant="danger">Remove</Button>
           </ul>
         </div>
       </div>

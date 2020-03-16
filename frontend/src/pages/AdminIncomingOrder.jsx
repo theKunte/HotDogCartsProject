@@ -2,8 +2,22 @@ import React from "react";
 import { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AdminSideNav from "../components/AdminSideNav";
+import OrderRenderBox from "./OrderRenderBox";
 
 class AdminIncomingOrder extends Component {
+  constructor() {
+    super();
+    this.state = {
+      orders: []
+    };
+  }
+  componentDidMount() {
+    fetch("http://localhost:3000/admin/orders/")
+      .then(res => res.json())
+      .then(orders =>
+        this.setState({ orders }, () => console.log("Orders Fetched ", orders))
+      );
+  }
   render() {
     return (
       <Container fluid>
@@ -21,6 +35,17 @@ class AdminIncomingOrder extends Component {
           >
             <h6>Incoming Orders</h6>
             <hr></hr>
+            {this.state.orders.map(order => (
+              <>
+                <OrderRenderBox
+                  OrderStatus={order.OrderStatus}
+                  TimeReceived={order.TimeReceived}
+                  LocationName={order.LocationName}
+                  Item={order.Item}
+                  Quantity={order.Quantity}
+                />
+              </>
+            ))}
           </Col>
         </Row>
       </Container>

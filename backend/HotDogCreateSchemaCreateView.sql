@@ -170,9 +170,9 @@ END //
 DELIMITER //
 CREATE PROCEDURE ShowOrder()
 BEGIN
-	SELECT `ORDER`.`Status` AS 'Order Status',
-    `ORDER`.`TIME` AS 'Time Received',
-    `Location`.VendorName'Location Name',
+	SELECT `ORDER`.`Status` AS 'OrderStatus',
+    `ORDER`.`TIME` AS 'TimeReceived',
+    `Location`.VendorName'LocationName',
     `Item`.`Name` AS 'Item',
     ORDER_Item.Quantity AS 'Quantity'
     FROM `ORDER` 
@@ -283,8 +283,12 @@ INSERT INTO LOCATION_ITEM
 	VALUES(1,1,'Y',32),
     (2,1,'Y',53),
     (3,1,'Y',12);
-            
 
+INSERT INTO `ORDER`
+	VALUES(NULL, 1, 'Received', '2020-01-31 23:59:59'),
+			(NULL, 1, 'Received', '2020-02-02 23:59:59');
 
-
+INSERT INTO Order_Item
+	VALUES(1, 1, 1, 2),
+		(1, 2, 1, 3);
 
