@@ -19,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #980405;
 }
 .jumbotron-fluid h1 {
   font-weight: 900;
