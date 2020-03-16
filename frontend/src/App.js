@@ -26,7 +26,6 @@ function App() {
     <div className="App">
       <ProductProvider>
         <Navigation />
-<<<<<<< HEAD
         <Router>
           <Route exact path="/" component={Home} />
           <Route path="/cart-locations" component={CartLocations} />
@@ -45,27 +44,6 @@ function App() {
           <Route path="/adminincomingorder" component={AdminIncomingOrder} />
           <Route path="/adminmenu" component={AdminMenu} />
         </Router>
-=======
-          <Router>
-            <Route exact path="/" component={Home} />
-            <Route path="/cart-locations" component={CartLocations} />
-            <Route path="/menu" component={MenuPage} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/adminvendor" component={AdminVendor} />
-            <Route path="/vendor" component={VendorPage} />
-            <Route path="/vendorLogout" component={VendorLogOut} />
-            <Route path="/login" component={LoginPage} />
-            <Route path="/vendor" cmponent={VendorPage} />
-            <Route path="/vendorincoming" component={VendorIncomingOrder} />
-            <Route path="/vendormenu" component={VendorMenu} />
-            <Route path="/vendorlocation" component={VendorCartLocation} />
-            <Route path="/adminaddcart" component={AdminAddCart} />
-            <Route path="/adminlog" component={AdminLog} />
-            <Route path="/adminremovecart" component={AdminRemoveCart} />
-            <Route path="/adminincomingorder" component={AdminIncomingOrder} />
-            <Route path="/adminmenu" component={AdminMenu} />
-          </Router>
->>>>>>> 4a22b051524ec9e1f612bbae32d270ac486c030b
         <Footer />
       </ProductProvider>
     </div>
