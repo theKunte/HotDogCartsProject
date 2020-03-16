@@ -1,25 +1,46 @@
 import React from "react";
-import { Jumbotron, InputGroup, FormControl } from "react-bootstrap";
+import { Jumbotron, Container, Row, Col } from "react-bootstrap";
+
+const styleHeading = {
+    position: 'relative',
+    top: '20px',
+    lineHeight: '100px',
+    fontSize: '8rem',
+    color: '#f4aa1b',
+    letterSpacing: '2px'
+}
+
+const styleSubheading = {
+  position: 'relative',
+  color: '#fff',
+  textTransform: 'uppercase',
+  fontSize: '1.2rem',
+}
+
+const styleMainBtn = {
+  position: 'relative',
+  top: '15px'
+}
 
 function HeroSection() {
   return (
-    <Jumbotron fluid className="text-center">
-      <h1>Bob's Dogs</h1>
-      <p>
-        A rustic hot dog vendor specializing in vegan dogs
-        <br /> and traditional farming practices.
-      </p>
-      <InputGroup className="mb-3">
-        <FormControl
-          size="lg"
-          placeholder="Enter Your Address or Zip Code..."
-        />
-        <InputGroup.Append>
-          <a className="btn btn-warning" href="/cart-locations">
-            Search
+    <Jumbotron fluid className="text-left">
+      <div className="menu-bg"></div>
+      <Container>
+        <Row style={{paddingLeft: '2rem'}}>
+          <Col sm='12' md='12'>
+          <p style={styleSubheading}>
+            A rustic hot dog vendor specializing in vegan dogs<br></br> and traditional farming practices.
+          </p>
+          <h1 style={styleHeading}>Bob's <br></br>Dogs</h1>
+          <a className="btn btn-outline-warning btn-lg" href="/cart-locations"
+            style={styleMainBtn}
+          >
+            Find Hot Dog Carts
           </a>
-        </InputGroup.Append>
-      </InputGroup>
+          </Col>
+        </Row>
+      </Container>
     </Jumbotron>
   );
 }

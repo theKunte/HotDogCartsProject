@@ -72,5 +72,6 @@ const styleModal = {
 
 const styleTitle = {
 	fontFamily: 'Luckiest Guy',
-	letterSpacing: '.5px'
+	letterSpacing: '.5px',
+	color: '#0257a7'
 }

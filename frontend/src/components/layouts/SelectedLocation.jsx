@@ -11,7 +11,7 @@ function SelectedLocation () {
         <div>
             <div style={ styleSidebar }>
                 <div style ={{ fontSize: '14px' }} className='flex-wrap d-flex pt-3'>
-                    <p style={{ fontWeight: 'bold', paddingRight: '1rem' }}><i class="fas fa-map-marker-alt"></i> Current Location:</p>
+                    <p style={{ fontWeight: 'bold', paddingRight: '1rem' }}><i className="fas fa-map-marker-alt"></i> Current Location:</p>
                     <p style={{ paddingRight: '1rem' }}>Name: Hot Dog Cart #1</p>
                     <p style={{ paddingRight: '1rem' }}>Address: 123 3rd Ave Seatt WA 98122</p>
                     <p style={{ paddingRight: '1rem' }}>Hours: 10am - 11pm</p>

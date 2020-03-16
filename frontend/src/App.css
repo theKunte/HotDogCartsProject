@@ -11,14 +11,18 @@
 }
 .App {
   min-height: calc(100vh - 56px - 56px);
+  /* background: #ffc107; */
 }
 /* ============ HOME PAGE HERO SECTION ============ */
 .jumbotron-fluid {
-  height: 95vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url('./main-img.jpg') center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .jumbotron-fluid h1 {
   font-weight: 900;
@@ -61,7 +65,7 @@ h2 {
   content: '';
   height: 80px;
   width: 80px;
-  background-color: #ffc107;
+  background-color: #f4aa1b;
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -70,20 +74,22 @@ h2 {
   z-index: -10;
 }
 .card {
-  border-radius: 1rem !important;
+  /* border-radius: 1rem !important; */
   height: 100% !important;
   margin-top: 2rem;
   width: 100% !important;
 }
 .card-body {
   padding-top: 0 !important;
+  background: #0257a7 !important;
+  color: #fff;
 }
 .fa-credit-card,
 .fa-check-square,
 .fa-map-marked-alt {
   font-size: 4rem;
   margin-bottom: 2rem;
-  /* margin-top: 2rem; */
+  color: #f4aa1b;
 }
 /* ============ MENU ITEMS / PRODUCTS ============ */
 
@@ -93,9 +99,8 @@ h2 {
   left: 0;
   width: 100%;
   height: 100vh;
-  /* background: url(); */
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url(./bg-pattern.png);
+  opacity: .1;
 }
 .contentBox {
   width: 200px;
@@ -105,6 +110,7 @@ h2 {
   overflow: hidden;
   position: relative;
   margin: 0.5rem;
+  background: #fff;
 }
 .productTitle {
   text-transform: uppercase;
@@ -112,6 +118,8 @@ h2 {
   letter-spacing: .5px;
   margin-top: .5rem;
   font-size: 1.1rem;
+  /* color: #0257a7; */
+  color: #ae2704;
 }
 .productImg {
   width: 100%;
@@ -138,7 +146,8 @@ h2 {
   position: relative;
   top: 6px;
   left: 4px;
-  color: #980405;
+  /* color: #980405; */
+  color: #0257a7;
 }
 
 .btn-sm p {
@@ -156,7 +165,7 @@ h2 {
 }
 /* ============ FOOTER ============ */
 .footer {
-  background: rgb(223, 223, 223);
+  background: #f4aa1b;
   padding: 1rem;
   clear: both;
   /* margin-top: 1rem; */

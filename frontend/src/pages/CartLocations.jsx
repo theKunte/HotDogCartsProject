@@ -99,7 +99,7 @@ const CartLocations = () => (
         <Sidebar />
         <div style={ styleMapDiv }>
             <WrappedMap 
-                googleMapURL = {`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places`} 
+                googleMapURL = {`https://maps.googleapis.com/maps/api/js?key=AIzaSyDEsKpLXZJY-Ch3s_UN152D7btqc7HOocQ`} 
                 loadingElement = {<div style={{ height: "100%" }} />}
                 containerElement = {<div style={{ height: '100%' }} />}
                 mapElement = {<div style={{ height: '100%' }} />}

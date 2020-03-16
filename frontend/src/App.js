@@ -12,7 +12,7 @@ import Footer from "./components/layouts/Footer";
 import Home from "./pages/Home";
 import CartLocations from "./pages/CartLocations";
 import MenuPage from "./pages/MenuPage";
-import Cart from './pages/Cart';
+import Cart from '../src/components/ShoppingCart/Cart';
 import AdminVendor from "./pages/AdminVendor";
 import LoginPage from "./pages/LoginPage";
 import AdminAddCart from "./pages/AdminAddCart";

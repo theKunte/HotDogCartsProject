@@ -53,7 +53,7 @@ export const hotdogProducts = [
         inCart: false,
         count: 0,
         total: 0
-      }
+      },
     ];
 
 export const detailProduct = {
