@@ -1,20 +1,24 @@
-import React from "react";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import VendorLogOut from "./pages/VendorLogOut";
-import VendorPage from "./pages/VendorPage";
-import VendorMenu from "./pages/VendorMenu";
-import VendorIncomingOrder from "./pages/VendorIncomingOrder";
-import VendorCartLocation from "./pages/VendorCartLocation";
-import Navigation from "./components/layouts/Navigation";
-import Footer from "./components/layouts/Footer";
-import Home from "./pages/Home";
-import CartLocations from "./pages/CartLocations";
-import MenuPage from "./pages/MenuPage";
+import React from 'react';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import VendorPage from './pages/VendorPage';
+import VendorMenu from './pages/VendorMenu';
+import VendorIncomingOrder from './pages/VendorIncomingOrder';
+import VendorCartLocation from './pages/VendorCartLocation';
+import Navigation from './components/layouts/Navigation';
+import Footer from './components/layouts/Footer';
+import Home from './pages/Home';
+import CartLocations from './pages/CartLocations';
+import MenuPage from './pages/MenuPage';
+// import AdminPage from './pages/AdminPage';
+import LoginPage from './pages/LoginPage';
+// import RegisterPage from './pages/RegisterPage';
+
+
+
 import Cart from "./pages/Cart";
 import AdminVendor from "./pages/AdminVendor";
-import LoginPage from "./pages/LoginPage";
 import AdminAddCart from "./pages/AdminAddCart";
 import AdminLog from "./pages/AdminLog";
 import AdminIncomingOrder from "./pages/AdminIncomingOrder";
@@ -33,7 +37,7 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/adminvendor" component={AdminVendor} />
           <Route path="/vendor" component={VendorPage} />
-          <Route path="/vendorLogout" component={VendorLogOut} />
+          {/* <Route path="/vendorLogout" component={VendorLogOut} /> */}
           <Route path="/login" component={LoginPage} />
           <Route path="/vendor" cmponent={VendorPage} />
           <Route path="/vendorin" component={VendorIncomingOrder} />

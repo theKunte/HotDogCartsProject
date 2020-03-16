@@ -5,7 +5,7 @@ function HomeCards() {
     return (
     <Container className="text-center howItworks">
         <h2>How it works</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet hendrerit quam, non consequat mi. </p>
+        <p>Let's be 'frank'. It's as easy as 1, 2, Hotdog! Simply follow the steps below to find which is the best selection for you, and your Kosher!  </p>
         <Row className="mt-5">
             <Col xs={12} md={4}>
                 <Card style={{ width: '18rem' }}>
@@ -34,7 +34,7 @@ function HomeCards() {
                     <Card.Body>
                         <Card.Title>3</Card.Title>
                         <i class="far fa-credit-card"></i>
-                        <Card.Subtitle className="mb-2 text-muted">Order onlne</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">Order online</Card.Subtitle>
                         <Card.Text>It's quick, easy, fast and secure.</Card.Text>
                     </Card.Body>
                 </Card>
