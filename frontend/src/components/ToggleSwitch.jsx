@@ -9,7 +9,6 @@ const Container = styled.lable `
 	display: inline-block;
 	width: 30px;
 	height: 16px
-
 	> input {
 		display: none;
 `;
@@ -24,7 +23,6 @@ const Slider = styled.span`
 	background-color: #dd;
 	transition: 0.4s;
 	border-radisu: 15px
-
 	&:before{
 		position: absolute;
 		content: '';
@@ -43,7 +41,6 @@ const SliderInput = styled.input`
 			transform: translateX(15px);
 			background-color: white;
 		}
-
 	}
 `;
 export default class ToggleSwitch extends React.Component {

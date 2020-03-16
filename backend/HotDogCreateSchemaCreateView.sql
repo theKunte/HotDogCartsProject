@@ -2,24 +2,19 @@
 -- Sun Feb 23 15:04:28 2020
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
 #Create Schema
 DROP SCHEMA IF EXISTS `HotDogDatabase`;
 CREATE SCHEMA `HotDogDatabase` DEFAULT CHARACTER SET utf8 ;
 USE `HotDogDatabase` ;
-
 #Item
 CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`ITEM` (
   `ItemID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ItemID`))
 ENGINE = InnoDB;
-
-
 #User
 CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`USER` (
   `UserID` INT NOT NULL AUTO_INCREMENT,
@@ -30,8 +25,6 @@ CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`USER` (
   `usertype` ENUM('admin', 'vendor', 'customer') NOT NULL,
   PRIMARY KEY (`UserID`))
 ENGINE = InnoDB;
-
-
 #Location
 #I implement a cascading update because want to update the fkID if we change the user PK.
 #Restrict delete because location must have a user.
@@ -48,8 +41,6 @@ CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`LOCATION` (
     ON DELETE RESTRICT
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
-
-
 #Order
 # I implement a cascading update because want to update the fkID if we change the location PK
 # I want to restrict deleting locations that have orders associated with them. 
@@ -65,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`ORDER` (
     ON DELETE RESTRICT
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
-
 #Log
 # I implement a cascading update because want to update the fkID if we change the user PK
 # Restrict delete if we have a log of item or location.
@@ -91,8 +81,6 @@ CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`LOG` (
     ON DELETE RESTRICT
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
-
-
 #Order_Item 
 #We shouldn't be able to delete an item if its associated with any orders. ON DELETE RESTRICT is thus logical
 #However if we want to delete the an order then that should cascade delete the order items. 
@@ -113,8 +101,6 @@ CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`Order_Item` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
-
-
 #Location_Item
 #We shouldn't be able to delete an item if its associated with any locations. ON DELETE RESTRICT is thus logical
 #However if we want to delete the a location then that should cascade delete the corresponding location items. 
@@ -135,12 +121,9 @@ CREATE TABLE IF NOT EXISTS `HotDogDatabase`.`LOCATION_ITEM` (
     ON DELETE RESTRICT
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
 DELIMITER //
 CREATE PROCEDURE ShowLog()
 	BEGIN
@@ -156,7 +139,6 @@ CREATE PROCEDURE ShowLog()
      JOIN LOCATION USING(LocationID)
      ORDER BY `Time` DESC;
 END //
-
 DELIMITER //
 CREATE PROCEDURE ShowLocation()
 BEGIN
@@ -166,7 +148,6 @@ BEGIN
 FROM LOCATION
 ORDER BY Location.VendorName DESC;
 END //
-
 DELIMITER //
 CREATE PROCEDURE ShowOrder()
 BEGIN
@@ -181,7 +162,6 @@ BEGIN
         JOIN ITEM USING(ItemID) 
 	ORDER BY OrderID;
 END //
-
 DELIMITER //
 CREATE PROCEDURE ShowMenu()
 BEGIN
@@ -195,7 +175,6 @@ BEGIN
         JOIN ITEM USING(ItemID);
 END //
 #----------------------TRIGGERS-----------------------
-
 DELIMITER //
 CREATE TRIGGER LOCATION_ADD AFTER INSERT ON LOCATION
 	FOR EACH ROW
@@ -204,7 +183,6 @@ CREATE TRIGGER LOCATION_ADD AFTER INSERT ON LOCATION
 	  VALUES
       (NULL, 'LOCATION_ADD',NULL, NEW.Availability, NOW(), NULL, NEW.Address, NEW.LocationID, NULL);
 	END//
-
 DELIMITER //
 CREATE TRIGGER LOCATION_AVAILABILITY AFTER UPDATE ON LOCATION
 	FOR EACH ROW
@@ -223,7 +201,6 @@ CREATE TRIGGER LOCATION_AVAILABILITY AFTER UPDATE ON LOCATION
       NULL
       );
 	END//
-
 DELIMITER //
 CREATE TRIGGER LOCATION_ADDRESS AFTER UPDATE ON LOCATION
 	FOR EACH ROW
@@ -242,7 +219,6 @@ CREATE TRIGGER LOCATION_ADDRESS AFTER UPDATE ON LOCATION
       NULL
       );
 	END//
-
 DELIMITER //
 CREATE TRIGGER MENU_AVAILABILITY AFTER UPDATE ON LOCATION_ITEM
 	FOR EACH ROW
@@ -261,34 +237,26 @@ CREATE TRIGGER MENU_AVAILABILITY AFTER UPDATE ON LOCATION_ITEM
       NEW.ItemID
       );
 	END//
-
-
 INSERT INTO `USER`
 	VALUES	(NULL, 'cooldude@gmail.com', '1234', 'Ben', 'Douginson', 'vendor'),
 			(NULL, 'skatedad@gmail.com', '2222', 'Chad', 'Dugelsen', 'vendor'),
             (NULL, 'sailboater@gmail.com', '9992', 'Vlad', 'Dugelsen', 'vendor'),
             (NULL, 'snowboarder@gmail.com', '5352', 'Germanicus', 'Clay', 'vendor');
-
 INSERT INTO `LOCATION`
 			(LocationID, VendorName, Availability, Address, UserID)
 	VALUES	(NULL, 'Queene Anne Dogs', 'Y', '95 Aurora Ave N, Seattle WA', 1),
 			(NULL, 'VeganGood Dogs', 'Y', '105 Greenwood Ave N, Seattle WA', 2),
             (NULL, 'VeganCool Dogs', 'Y', '120 Greenwood Ave N, Seattle WA', 3),
             (NULL, 'Seattle Dogs', 'Y', '132 Greenwood Ave N, Seattle WA', 4);
-            
 INSERT INTO ITEM
 	VALUES (NULL, 'Vegan Dog');
-    
 INSERT INTO LOCATION_ITEM
 	VALUES(1,1,'Y',32),
     (2,1,'Y',53),
     (3,1,'Y',12);
-
 INSERT INTO `ORDER`
 	VALUES(NULL, 1, 'Received', '2020-01-31 23:59:59'),
 			(NULL, 1, 'Received', '2020-02-02 23:59:59');
-
 INSERT INTO Order_Item
 	VALUES(1, 1, 1, 2),
 		(1, 2, 1, 3);
-
