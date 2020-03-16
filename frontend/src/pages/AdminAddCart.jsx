@@ -7,13 +7,20 @@ class AdminAddCart extends Component {
   constructor() {
     super();
     this.state = {
-      vendorusers: []
+      vendorusers: [],
+      data: []
     };
   }
   componentDidMount() {
     fetch("http://localhost:3000/admin/vendorusers/")
       .then(res => res.json())
       .then(vendorusers => this.setState({ vendorusers }));
+  }
+  handleSubmit() {
+    alert("A vendor was submitted: ");
+  }
+  handleChange(event) {
+    this.alert("hi " + event.target.value);
   }
   render() {
     return (
@@ -32,10 +39,14 @@ class AdminAddCart extends Component {
           >
             <h6>Add Cart</h6>
             <hr></hr>
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="formVendorName">
                 <Form.Label>Vendor Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter vendor name" />
+                <Form.Control
+                  type="text"
+                  placeholder="Enter vendor name"
+                  onChange={this.handleChange.bind(this)}
+                />
               </Form.Group>
 
               <Form.Group controlId="formAddress">
@@ -53,8 +64,7 @@ class AdminAddCart extends Component {
                   ))}
                 </Form.Control>
               </Form.Group>
-
-              <Button variant="warning" type="submit">
+              <Button type="submit" variant="warning">
                 Add Vendor
               </Button>
             </Form>
