@@ -182,10 +182,12 @@ h2 {
 }
 /* ============ DASHBOARD SIDE NAV ============ */
 .dashboardSideNav {
-  margin-top: 56px;
-  min-height: calc(100vh - 56px - 56px);
+  margin-top: -20px;
+  /* min-height: calc(100vh - 56px - 56px); */
   background: #354052;
   color: #eee;
+  margin-left: -15px;
+  height: 120vh;
 }
 .dashboardSideNav p {
   padding-left: 1.6rem;
