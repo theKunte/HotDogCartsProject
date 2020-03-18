@@ -19,12 +19,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #980405;
+  background-color: #980405 !important;
 }
 .jumbotron-fluid h1 {
   font-weight: 900;
   font-size: 6rem;
   font-family: 'Luckiest Guy', cursive;
+  color: rgb(253, 229, 11);
+
+}
+.jumbotron-fluid p{
+  color: rgb(253, 229, 11);
+  
 }
 .form-control-lg {
   border-radius: 2rem 0 0 2rem !important;
@@ -45,10 +51,22 @@ h2 {
   margin-bottom: 2rem !important;
   font-family: 'Luckiest Guy';
   letter-spacing: 1px;
+  color: rgb(6, 63, 250);
+
+}
+.main-P{
+  font-family: 'Luckiest Guy';
+  color: rgb(6, 63, 250);
+
+
 }
 .howItworks {
   min-height: calc(100vh - 56px - 56px);
   padding: 5rem 0;
+  font-family: 'Luckiest Guy';
+  
+
+
 }
 .card-title {
   position: relative;

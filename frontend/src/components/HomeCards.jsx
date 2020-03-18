@@ -5,7 +5,9 @@ function HomeCards() {
     return (
     <Container className="text-center howItworks">
         <h2>How it works</h2>
-        <p>Let's be 'frank'. It's as easy as 1, 2, Hotdog! Simply follow the steps below to find which is the best selection for you, and your Kosher!  </p>
+        <div>
+        <p className="main-P">Let's be 'frank'. It's as easy as 1, 2, Hotdog! Simply follow the steps below to find which is the best selection for you, and your Kosher!  </p>
+        </div>
         <Row className="mt-5">
             <Col xs={12} md={4}>
                 <Card style={{ width: '18rem' }}>

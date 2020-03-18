@@ -4,7 +4,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 function Navigation() {
     return (
         <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top">
-        <Navbar.Brand href="/">HotDogCarts</Navbar.Brand>
+        <Navbar.Brand href="/">Bob's Dogs</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto">
