@@ -4,8 +4,7 @@ import { Jumbotron, InputGroup, FormControl } from "react-bootstrap";
 function HeroSection() {
   return (
     <Jumbotron fluid className="text-center">
-      <div>
-      </div>
+     
       <h1>Bob's Dogs!</h1>
       <p>
         A rustic hot dog vendor specializing in vegan and not-so vegan dogs
