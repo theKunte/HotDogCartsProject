@@ -48,6 +48,7 @@ function App() {
           {/* <Route exact path="/vendor/:id" render={(props) => <VendorPage globalStore={globalStore} {...props} /> } /> */}
           <Route path="/vendor/:id" component={VendorPage}/>
           <Route path="/vendorLocation/:id" component={VendorCartLocation}/>
+          <Route path="/vendorIncoming/:id" component={VendorIncomingOrder}/>
         </Router>
         <Footer />
       </ProductProvider>
