@@ -9,7 +9,7 @@ function Navigation() {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/register">Sign Up</Nav.Link>
+                    <Nav.Link href="/signup">Sign Up</Nav.Link>
                     <Nav.Link href="/login">Login</Nav.Link>
                     <Nav.Link href="/cart"><i className="fas fa-shopping-cart"></i></Nav.Link>
                 </Nav>

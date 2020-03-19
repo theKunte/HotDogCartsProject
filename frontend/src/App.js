@@ -13,7 +13,7 @@ import CartLocations from './pages/CartLocations';
 import MenuPage from './pages/MenuPage';
 // import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
-// import RegisterPage from './pages/RegisterPage';
+import Signup from './pages/RegisterPage';
 import VendorLogOut from './pages/VendorLogOut';
 
 
@@ -39,6 +39,7 @@ function App() {
           <Route path="/adminvendor" component={AdminVendor} />
           <Route path="/vendorLogout" component={VendorLogOut} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={Signup} />
           <Route path="/adminaddcart" component={AdminAddCart} />
           <Route path="/adminlog" component={AdminLog} />
           <Route path="/adminincomingorder" component={AdminIncomingOrder} />

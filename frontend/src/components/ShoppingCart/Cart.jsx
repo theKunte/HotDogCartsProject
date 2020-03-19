@@ -20,7 +20,7 @@ export default class Cart extends Component {
 								if (cart.length > 0) {
 									return (
 										<div style={{marginTop: '100px'}}>
-											<h2 style={{color: '#0257a7'}}>Shopping Cart</h2>
+											<h2 style={{color: '#555'}}>Shopping Cart</h2>
 											<CartHeading />
 											<CartList value={value}/>
 											<CartTotal value={value}/>

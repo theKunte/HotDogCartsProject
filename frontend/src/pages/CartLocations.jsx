@@ -18,7 +18,7 @@ const styleContainer = {
 }
 
 const styleInfoWinTitle = {
-    color: 'red',
+    color: '#555',
     fontWeight: 'bold',
     
 
@@ -43,7 +43,6 @@ const styleInfoWinPhone = {
 }
 
 const styleInfoWinButton = {
-    fontFamily: 'Arial',
     fontWeight: 'bold',
     
 }
@@ -83,7 +82,7 @@ function Map() {
                     <p style={ styleInfoWinAddress }>{selectedCart.address}</p>
                     <p style={ styleInfoWinHours }>{selectedCart.hours}</p>
                     <p style={ styleInfoWinPhone }>{selectedCart.phone}</p>
-                    <button style={ styleInfoWinButton }>View Menu</button>
+                    <a href="/menu" className='btn btn-sm btn-outline-warning' style={ styleInfoWinButton }>View Menu</a>
                 </div>
             </InfoWindow>
         )}
