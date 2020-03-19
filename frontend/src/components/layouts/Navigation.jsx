@@ -11,7 +11,7 @@ function Navigation() {
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/register">Sign Up</Nav.Link>
                     <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link to="/cart"><i className="fas fa-shopping-cart"></i></Nav.Link>
+                    <Nav.Link href="/cart"><i className="fas fa-shopping-cart"></i></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
