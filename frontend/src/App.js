@@ -14,6 +14,7 @@ import MenuPage from './pages/MenuPage';
 // import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
 // import RegisterPage from './pages/RegisterPage';
+import VendorLogOut from './pages/VendorLogOut';
 
 
 
@@ -36,17 +37,17 @@ function App() {
           <Route path="/menu" component={MenuPage} />
           <Route path="/cart" component={Cart} />
           <Route path="/adminvendor" component={AdminVendor} />
-          <Route path="/vendor" component={VendorPage} />
-          {/* <Route path="/vendorLogout" component={VendorLogOut} /> */}
+          <Route path="/vendorLogout" component={VendorLogOut} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/vendor" cmponent={VendorPage} />
-          <Route path="/vendorin" component={VendorIncomingOrder} />
-          <Route path="/vendormenu" component={VendorMenu} />
-          <Route path="/vendorlocation" component={VendorCartLocation} />
           <Route path="/adminaddcart" component={AdminAddCart} />
           <Route path="/adminlog" component={AdminLog} />
           <Route path="/adminincomingorder" component={AdminIncomingOrder} />
           <Route path="/adminmenu" component={AdminMenu} />
+          
+          {/* ---> go to specific vendor's page by passing in an id */}
+          {/* <Route exact path="/vendor/:id" render={(props) => <VendorPage globalStore={globalStore} {...props} /> } /> */}
+          <Route path="/vendor/:id" component={VendorPage}/>
+          <Route path="/vendorLocation/:id" component={VendorCartLocation}/>
         </Router>
         <Footer />
       </ProductProvider>
