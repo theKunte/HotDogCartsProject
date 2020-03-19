@@ -2,8 +2,22 @@ import React from "react";
 import {Component} from "react";
 import {Container, Row, Col } from "react-bootstrap";
 import VendorSideNav from "../components/VendorSideNav";
+import LogRenderBox from "./LogRenderBox";
+
 
 class VendorLogOut extends Component{ 
+    constructor(){
+      super();
+      this.state = {
+        log: []
+      };
+    }
+    componentDidMount(){
+      fetch("http://localhost:3000/vendor/log/")
+      .then(res => res.json())
+      .then(log => this.setState({log}, () => console.log("Log Fetched ", log))
+      );
+    }
     render() {
         return (
             <Container fluid>
@@ -19,8 +33,19 @@ class VendorLogOut extends Component{
             xl="10"
             style={{ paddingTop: "75px" }}
           >
-            <h6>Log Out</h6>
-            <hr></hr>
+            <h6> Log Out Test</h6>
+            <ul>
+              <hr></hr>
+              {this.state.log.map(singleLog => (
+                <>
+                  <LogRenderBox
+                    Location={singleLog.Location}
+                    Change_Type={singleLog.Change_Type}
+                    Time={singleLog.Time}
+                  />
+                </>
+              ))}
+            </ul>
           </Col>
         </Row>
       </Container>
