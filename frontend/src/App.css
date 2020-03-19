@@ -62,6 +62,7 @@ h2 {
 }
 .subMainBag {
   background: gray !important;
+  margin-top: -32px;
 }
 .card-title {
   position: relative;

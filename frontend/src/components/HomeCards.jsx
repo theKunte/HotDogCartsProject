@@ -12,7 +12,7 @@ function HomeCards() {
                         <Card style={{ width: '18rem' }}>
                             <Card.Body>
                                 <Card.Title>1</Card.Title>
-                                <i class="fas fa-map-marked-alt"></i>
+                                <i className="fas fa-map-marked-alt"></i>
                                 <Card.Subtitle className="mb-2 text-muted">Search by address</Card.Subtitle>
                                 <Card.Text>Find all hot dog carts available in your area.</Card.Text>
                             </Card.Body>
