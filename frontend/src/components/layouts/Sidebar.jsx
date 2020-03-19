@@ -4,12 +4,12 @@ import FavoriteCarts from '../../data/favorite-carts';
 const styleSidebar = {
     width: '235px',
     backgroungColor: '#333',
-    border: '1px solid black',
+    border: '1px solid #f4aa1b',
     padding: '1rem',
     float: 'left',
     marginRight: '1rem',
     marginBottom: '1rem',
-    borderRadius: '.3rem'
+    // borderRadius: '.3rem'
 }
 
 function Sidebar () {
@@ -19,7 +19,7 @@ function Sidebar () {
             <hr/>
             { FavoriteCarts.map(carts => 
                 <div style ={{ fontSize: '14px' }}>
-                    <p style={{ marginBottom: '.5rem' }}>{ carts.title }</p>
+                    <h6 style={{ marginBottom: '.5rem' }}>{ carts.title }</h6>
                     <p style={{ marginBottom: '.5rem' }}>{ carts.address }</p>
                     <a className="btn btn-sm btn-warning" href="/menu">View Menu</a>
                     <hr/>

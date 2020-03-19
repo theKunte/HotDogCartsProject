@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 const padding = {
     paddingTop: '8rem',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#555'
 }
 
 const styleContainer = {
