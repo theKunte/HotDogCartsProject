@@ -18,7 +18,7 @@ import VendorLogOut from './pages/VendorLogOut';
 
 
 
-import Cart from "./pages/Cart";
+import Cart from "./components/ShoppingCart/Cart";
 import AdminVendor from "./pages/AdminVendor";
 import AdminAddCart from "./pages/AdminAddCart";
 import AdminLog from "./pages/AdminLog";
