@@ -31,7 +31,7 @@ class VendorSideNav extends Component{
                         </li>
                     </ul>
                     <hr/>
-                    <a className= 'logout' href="/vendorlogout">Logout</a>
+                    <a className= 'logout' href="/login">Logout</a>
                 </div>
             </div>
         )

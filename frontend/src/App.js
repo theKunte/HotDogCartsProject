@@ -14,6 +14,7 @@ import MenuPage from './pages/MenuPage';
 // import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
 // import RegisterPage from './pages/RegisterPage';
+import VendorLogOut from './pages/VendorLogOut';
 
 
 
@@ -36,7 +37,7 @@ function App() {
           <Route path="/menu" component={MenuPage} />
           <Route path="/cart" component={Cart} />
           <Route path="/adminvendor" component={AdminVendor} />
-          {/* <Route path="/vendorLogout" component={VendorLogOut} /> */}
+          <Route path="/vendorLogout" component={VendorLogOut} />
           <Route path="/login" component={LoginPage} />
           <Route path="/adminaddcart" component={AdminAddCart} />
           <Route path="/adminlog" component={AdminLog} />
