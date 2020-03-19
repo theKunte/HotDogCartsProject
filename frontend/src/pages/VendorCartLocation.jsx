@@ -33,7 +33,7 @@ class VendorCartLocation extends Component {
                       <hr></hr>
                       <VendorCartLocationForm 
                         id={this.props.match.params.id}
-                        defaultLocation={'555 test street'}
+                       // defaultLocation={'555 test street'}
                         submitData={this.submitData} //pass submit function to component through props
                       />
                   </Col>

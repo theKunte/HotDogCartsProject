@@ -13,6 +13,16 @@ class VendorCartLocationForm extends Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
+    componentDidMount(){
+      //retrieve data from database
+      fetch(`http://localhost:3000/getLocation?userid=${this.state.id}`)
+      .then(res => res.json())
+      .then(data => this.setState({
+        value: data.address
+      })
+      );
+      console.log(`VendorPage loaded for userid: ${this.state.id}`);
+    }
     handleChange(event) {
       this.setState({value: event.target.value});
     }

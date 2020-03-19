@@ -111,4 +111,19 @@ router.get('/getUser', function(req, res) {
   });
 });
 
+// Get specific user data
+router.get('/getLocation', function(req,res){
+  let userID = req.query.userid;
+  let userId = req.query.userid;
+  db.query(`SELECT * FROM location WHERE UserId=${userId}`,(err,rows)=>{
+    if(err) throw err;
+    
+    var resource = {
+      userid: parseInt(userId),
+      address: rows[0].Address
+    }
+    res.send(resource);
+  });
+});
+
 module.exports = router;
