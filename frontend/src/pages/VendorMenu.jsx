@@ -1,4 +1,3 @@
-import VendorRenderBox from './VendorRenderBox';
 import VendorSideNav from '../components/VendorSideNav';
 import { Container, Row, Col } from 'react-bootstrap';
 import React, {Component} from 'react';
@@ -7,6 +6,7 @@ import SelectedLocation from '../components/layouts/SelectedLocation';
 import VendorMenuItem from '../components/VendorMenuItem';
 import { ProductConsumer } from '../data/context';
 import Modal from '../components/Modal';
+
 const styleContainer = {
     minHeight: 'calc(98vh - 56px - 56px)',
     marginTop: '4.6875rem',
