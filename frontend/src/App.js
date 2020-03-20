@@ -50,6 +50,9 @@ function App() {
           <Route path="/vendor/:id" component={VendorPage}/>
           <Route path="/vendorLocation/:id" component={VendorCartLocation}/>
           <Route path="/vendorIncoming/:id" component={VendorIncomingOrder}/>
+          <Route path="/vendormenu" component={VendorMenu} />
+          
+          
         </Router>
         <Footer />
       </ProductProvider>

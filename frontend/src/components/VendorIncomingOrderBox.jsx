@@ -13,13 +13,14 @@ class VendorIncomingOrderBox extends Component {
         this.state = {
           orderid: this.props.order.id,
           itemName: this.props.order.itemName,
-          itemQty: this.props.order.itemQty
+          itemQty: this.props.order.itemQty,
+          orderStatus: this.props.order.status
+
         };
     
         // this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
       }
-    
 
   render() {
     return (
@@ -30,8 +31,9 @@ class VendorIncomingOrderBox extends Component {
             className="d-flex justify-content-between mr-5 ml-5"
           >
             <li>OrderNumber: {this.state.orderid}</li>
-            <li>Item:{this.state.itemName}</li>
+            <li>Item :{this.state.itemName}</li>
             <li>Quantity: {this.state.itemQty}</li>
+            <li>Status :{this.state.orderStatus}</li>
 
             <Button variant="danger">Remove</Button>
           </ul>
