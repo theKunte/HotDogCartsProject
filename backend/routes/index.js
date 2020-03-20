@@ -126,4 +126,20 @@ router.get('/getLocation', function(req,res){
   });
 });
 
+// Get specific incomingOrder for Vendor
+router.get('/getOrdersbyLocationId', function(req,res){
+  let locId = req.query.locId;
+  db.query(`SELECT OrderId FROM hotdogdatabase.order WHERE LocationId=${locId}`,(err,rows)=>{
+    if(err) throw err;
+    var orders = [];
+    
+    // var orders = {
+      
+    //   locid: parseInt(locId),
+    //   address: rows[0].Address
+    // }
+    res.send(orders);
+  });
+});
+
 module.exports = router;
