@@ -143,6 +143,7 @@ router.get('/getOrdersbyLocationId', function(req,res){
       });
       
    res.json(orders);
+   //Test
   });
 });
 
