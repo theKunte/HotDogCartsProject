@@ -128,14 +128,13 @@ router.get('/getLocation', function(req,res){
 // Get specific incomingOrder for Vendor
 router.get('/getOrdersbyLocationId', function(req,res){
   let locId = req.query.locId;
-  var order =[];
-  
-  // db.query(`SELECT OrderId FROM hotdogdatabase.order WHERE LocationId=${locId}`,(err,rows)=>{
+  var orders =[];
+
     db.query(`SELECT * FROM hotdogdatabase.order WHERE LocationID=${locId}`,(err1,query1)=>{
       if(err1) throw err1;
 
       query1.map(row =>{
-        order.push({
+        orders.push({
           id: row.OrderID,
           status: row.Status,
           items: JSON.parse(row.Items)
@@ -143,7 +142,6 @@ router.get('/getOrdersbyLocationId', function(req,res){
       });
       
    res.json(orders);
-   //Test
   });
 });
 
