@@ -113,7 +113,6 @@ router.get('/getUser', function(req, res) {
 
 // Get specific user data
 router.get('/getLocation', function(req,res){
-  let userID = req.query.userid;
   let userId = req.query.userid;
   db.query(`SELECT * FROM location WHERE UserId=${userId}`,(err,rows)=>{
     if(err) throw err;
@@ -129,16 +128,21 @@ router.get('/getLocation', function(req,res){
 // Get specific incomingOrder for Vendor
 router.get('/getOrdersbyLocationId', function(req,res){
   let locId = req.query.locId;
-  db.query(`SELECT OrderId FROM hotdogdatabase.order WHERE LocationId=${locId}`,(err,rows)=>{
-    if(err) throw err;
-    var orders = [];
-    
-    // var orders = {
+  var order =[];
+  
+  // db.query(`SELECT OrderId FROM hotdogdatabase.order WHERE LocationId=${locId}`,(err,rows)=>{
+    db.query(`SELECT * FROM hotdogdatabase.order WHERE LocationID=${locId}`,(err1,query1)=>{
+      if(err1) throw err1;
+
+      query1.map(row =>{
+        order.push({
+          id: row.OrderID,
+          status: row.Status,
+          items: JSON.parse(row.Items)
+        });
+      });
       
-    //   locid: parseInt(locId),
-    //   address: rows[0].Address
-    // }
-    res.send(orders);
+   res.json(orders);
   });
 });
 
